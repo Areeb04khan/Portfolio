@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areeb Khan – Cybersecurity Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f4f6fa; --surface: #ffffff; --ink: #1a1a2e; --muted: #6b7280;
+      --accent: #1e3a5f; --accent2: #2563eb; --accent-lt: #eef2f7; --border: #dde3ec; --radius: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+
+    .navbar { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: var(--accent); padding: 16px 48px; box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
+    .nav-brand { font-family: 'DM Serif Display', serif; color: #fff; font-size: 20px; }
+    .nav-brand span { color: #93c5fd; }
+    .nav-links { display: flex; list-style: none; gap: 28px; }
+    .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .hero { background: linear-gradient(135deg, var(--accent) 0%, #0f2444 100%); padding: 80px 48px 72px; color: white; }
+    .hero-inner { max-width: 860px; margin: 0 auto; display: flex; gap: 48px; align-items: center; }
+    .hero-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.3); flex-shrink: 0; }
+    .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #93c5fd; margin-bottom: 12px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 12px; }
+    .hero-subtitle { font-size: 17px; color: #cbd5e1; margin-bottom: 20px; }
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-chip { font-size: 13px; color: #93c5fd; background: rgba(255,255,255,0.08); border-radius: 99px; padding: 6px 14px; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+    section { margin-top: 64px; scroll-margin-top: 80px; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent2); margin-bottom: 8px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 30px; letter-spacing: -0.8px; color: var(--ink); margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+
+    .summary-text { font-size: 15.5px; color: #374151; line-height: 1.75; }
+
+    .skills-list { display: flex; flex-direction: column; gap: 10px; }
+    .skill-row { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+    .skill-label { font-weight: 600; font-size: 13px; color: var(--accent); min-width: 190px; flex-shrink: 0; padding-top: 1px; }
+    .skill-val { font-size: 13.5px; color: #374151; }
+
+    .job { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 16px; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .job-title { font-weight: 700; font-size: 16px; color: var(--ink); }
+    .job-company { font-size: 14px; font-weight: 600; color: var(--accent2); margin-top: 2px; }
+    .job-dates { font-size: 12px; color: var(--muted); background: var(--accent-lt); padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+    .job-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 8px; }
+    .job-bullets li { font-size: 14px; color: #374151; padding-left: 18px; position: relative; line-height: 1.55; }
+    .job-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent2); font-size: 12px; top: 2px; }
+    .achievements-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 16px 0 8px; }
+
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+    .edu-degree { font-weight: 700; font-size: 14px; color: var(--ink); }
+    .edu-uni { font-size: 13px; color: var(--accent2); margin-top: 4px; }
+    .edu-years { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+    .cert-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cert-item { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent2); border-radius: 6px; padding: 12px 16px; font-size: 13.5px; color: var(--ink); }
+
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; }
+    .project-title { font-weight: 700; font-size: 16px; color: var(--ink); }
+    .project-tag { display: inline-block; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; margin-left: 10px; }
+
+    .links-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 20px; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
+    .link-btn:hover { border-color: var(--accent2); background: var(--accent-lt); text-decoration: none; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 48px; text-align: center; font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .navbar, .hero, .container, footer { padding-left: 20px; padding-right: 20px; }
+      .hero-inner { flex-direction: column; gap: 24px; }
+      .edu-grid, .cert-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">Areeb <span>Khan</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <img src="https://picsum.photos/seed/areeb/200" alt="Areeb Khan" class="hero-photo">
+      <div>
+        <p class="hero-eyebrow">Cybersecurity Professional</p>
+        <h1>Areeb Khan</h1>
+        <p class="hero-subtitle">SOC Operations · Threat Detection · Security Monitoring</p>
+        <div class="hero-contact">
+          <span class="contact-chip">📍 Noida, UP, India</span>
+          <span class="contact-chip">📞 6393368686</span>
+          <span class="contact-chip">✉️ areeb4khan@gmail.com</span>
+          <span class="contact-chip">🔗 linkedin.com/in/areeb4khan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <section id="about">
+      <p class="section-label">01 — Profile</p>
+      <h2>Professional Summary</h2>
+      <div class="card">
+        <p class="summary-text">Cybersecurity-focused professional with hands-on experience in IT infrastructure, access control, and incident troubleshooting. Strong foundation in SOC operations, threat detection, and security monitoring, supported by practical exposure to real-world system environments. Experience includes endpoint management, network security basics, and user security practices.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="section-label">02 — Expertise</p>
+      <h2>Skills (SOC-Focused)</h2>
+      <div class="skills-list">
+        <div class="skill-row"><span class="skill-label">Security Operations</span><span class="skill-val">Security Monitoring, Incident Detection & Response, Log Analysis</span></div>
+        <div class="skill-row"><span class="skill-label">Threat Management</span><span class="skill-val">Vulnerability Assessment, Threat Identification, Risk Mitigation</span></div>
+        <div class="skill-row"><span class="skill-label">Security Tools</span><span class="skill-val">SIEM (Basic), Intrusion Detection Systems (IDS), Email Security</span></div>
+        <div class="skill-row"><span class="skill-label">Access & Identity</span><span class="skill-val">Identity and Access Management (IAM), Role-Based Access Control (RBAC)</span></div>
+        <div class="skill-row"><span class="skill-label">Networking</span><span class="skill-val">TCP/IP, DNS, HTTP/HTTPS, Network Protocols</span></div>
+        <div class="skill-row"><span class="skill-label">Platforms</span><span class="skill-val">Google Workspace Security, Microsoft 365 Security</span></div>
+        <div class="skill-row"><span class="skill-label">Scripting</span><span class="skill-val">Google Apps Script, PowerShell (Basic)</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <p class="section-label">03 — Experience</p>
+      <h2>Work History</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">IT & Systems Operations Associate</div>
+            <div class="job-company">Kanhaiya Residency and Hotel</div>
+          </div>
+          <span class="job-dates">Aug 2025 – Present</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Led deployment and configuration of IT infrastructure including endpoint systems, LAN/Wi-Fi connectivity, and operational software</li>
+          <li>Configured and managed LAN and wireless networks, ensuring secure and reliable access across operations</li>
+          <li>Implemented basic network security controls including authentication policies, access restrictions, and firmware updates</li>
+          <li>Assisted in setup and management of captive portal for guest Wi-Fi, enabling controlled access and monitoring</li>
+          <li>Implemented role-based access control (RBAC) to restrict unauthorized system access</li>
+          <li>Performed system and network troubleshooting, log review, and issue resolution to minimize downtime</li>
+          <li>Trained staff on secure system usage and operational workflows; maintained asset inventory</li>
+        </ul>
+        <div class="achievements-label">Key Achievements</div>
+        <ul class="job-bullets">
+          <li>Onboarded and synchronized hotel listings across 5+ OTA platforms, reducing booking discrepancies by ~30%</li>
+          <li>Trained 8+ staff members, improving operational efficiency and reducing system-related errors</li>
+          <li>Reduced system/network downtime by ~25% through proactive troubleshooting and structured setup</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Product Support Specialist Intern</div>
+            <div class="job-company">Threatcop (Kratikal Tech) — Project Management Role</div>
+          </div>
+          <span class="job-dates">Jan 2025 – Jul 2025</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Supported phishing simulation campaigns for 60+ clients across Google Workspace and Microsoft 365 environments</li>
+          <li>Assisted in email security configuration and troubleshooting deliverability issues</li>
+          <li>Conducted client onboarding and training on cybersecurity awareness tools</li>
+          <li>Created automation scripts using Google Apps Script and PowerShell</li>
+          <li>Collaborated with teams to ensure smooth campaign execution and platform performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <p class="section-label">04 — Education</p>
+      <h2>Academic Background</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Master of Computer Applications (MCA)</div>
+          <div class="edu-uni">Sharda University</div>
+          <div class="edu-years">2023 – 2025</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-uni">Integral University</div>
+          <div class="edu-years">2020 – 2023</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <p class="section-label">05 — Certifications</p>
+      <h2>Certifications</h2>
+      <div class="cert-list">
+        <div class="cert-item">Cybersecurity Analyst Job Simulation<br><small style="color:#6b7280">Tata Group · 2024</small></div>
+        <div class="cert-item">Penetration Testing Essential Training<br><small style="color:#6b7280">LinkedIn · 2023</small></div>
+        <div class="cert-item">Ethical Hacking<br><small style="color:#6b7280">CompTIA & IIBA · 2023</small></div>
+        <div class="cert-item">Cloud Security<br><small style="color:#6b7280">LinkedIn · 2023</small></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="section-label">06 — Projects</p>
+      <h2>Freelance Projects</h2>
+      <div class="project-card">
+        <div style="margin-bottom:12px">
+          <span class="project-title">Cyber Forensic Investigation</span>
+          <span class="project-tag">NDA Project</span>
+        </div>
+        <ul class="job-bullets">
+          <li>Investigated malware-based breach involving crypto-mining trojan (CoinMinr-B)</li>
+          <li>Performed registry analysis, log inspection, and endpoint security review</li>
+          <li>Identified attack vector and recommended security improvements</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="section-label">07 — Contact</p>
+      <h2>Get In Touch</h2>
+      <div class="links-row" style="margin-bottom:24px">
+        <a href="mailto:areeb4khan@gmail.com" class="link-btn">✉️ Email Me</a>
+        <a href="https://www.linkedin.com/in/areeb4khan" class="link-btn" target="_blank">🔗 LinkedIn</a>
+      </div>
+      <div class="card">
+        <form>
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px" for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none">
+          </div>
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px" for="email">Email</label>
+            <input id="email" type="email" placeholder="your@email.com" style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none">
+          </div>
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px" for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Write your message..." style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);outline:none;resize:vertical"></textarea>
+          </div>
+          <button type="submit" style="background:var(--accent);color:white;padding:13px 28px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Areeb Khan · Noida, India · <a href="mailto:areeb4khan@gmail.com" style="color:var(--accent2)">areeb4khan@gmail.com</a></p>
+  </footer>
+
+  <script>
+    console.log("JavaScript is working!")
+    let name = "Areeb"
+    let age = 25
+    let isLearning = true
+    console.log(`My name is ${name}, I am ${age} years old, and it is ${isLearning} that I am learning web development.`)
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault()
+        const target = document.querySelector(this.getAttribute('href'))
+        if (target) target.scrollIntoView({ behavior: 'smooth' })
+      })
+    })
+  </script>
+</body>
+</html>
